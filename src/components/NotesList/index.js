@@ -1,11 +1,11 @@
 import React from "react";
 import './style.css';
 
-const NotesList = () => {
+const NotesList = ({ children }) => {
     return (
         <>
             <ul className="notes-list">
-
+                {children}
             </ul>
         </>
     );

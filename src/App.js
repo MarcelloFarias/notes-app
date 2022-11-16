@@ -10,7 +10,9 @@ function App() {
       <Header />
       <main>
         <NoteInput />
-        <NotesList />
+        <NotesList>
+          
+        </NotesList>
       </main>
     </>
   );
