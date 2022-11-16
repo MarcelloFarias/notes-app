@@ -6,7 +6,7 @@ const NoteInput = () => {
         <>
             <div className="input-field">
                 <input type='text' className="input-note" placeholder="Type The Note Here..." />
-                <button className="btn-add">Add Task</button>
+                <button className="btn-add">Add Note</button>
             </div>
         </>
     );
