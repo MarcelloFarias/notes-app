@@ -1,4 +1,9 @@
 .notes-list {
     width: 100%;
     height: auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    row-gap: 15px;
+    padding: 1rem;
 }

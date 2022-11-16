@@ -3,54 +3,12 @@ header {
     height: 10vh;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: space-around;
-    background: #251B37;
-}
-
-header .title-field {
-    width: 100%;
+    justify-content: left;
     flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    padding: 1rem;
+    background: #251B37;
 }
 
 header h1 {
     color: #FFECEF;
-}
-
-header .btn-search {
-    padding: 0.4rem;
-    font-size: 1rem;
-    width: 150px;
-    border-radius: 10px;
-    background: #FFECEF;
-    border: none;
-    outline: none;
-    color: #372948;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-header .btn-search:hover {
-    background: #FFCACA;
-    transform: scale(1.05);
-}
-
-header .input-field {
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-header .input-field .input-search {
-    padding: 0.5rem;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    color: #372948;
 }

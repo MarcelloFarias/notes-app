@@ -1,12 +1,12 @@
 import React from "react";
 import './style.css';
 
-const NoteInput = () => {
+const NoteInput = ({ handleInputValue, inputNoteValue, createNote }) => {
     return (
         <>
             <div className="input-field">
-                <input type='text' className="input-note" placeholder="Type The Note Here..." />
-                <button className="btn-add">Add Note</button>
+                <input type='text' value={inputNoteValue} onChange={handleInputValue} className="input-note" placeholder="Type The Note Here..." />
+                <button className="btn-add" onClick={createNote}>Add Note</button>
             </div>
         </>
     );

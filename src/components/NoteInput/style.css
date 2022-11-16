@@ -26,10 +26,10 @@
     cursor: pointer;
     background: #FFECEF;
     color: #372948;
-    transition: all 0.2s ease;
+    outline: none;
+    border: none;
 }
 
 .input-field .btn-add:hover {
     background: #FFCACA;
-    transform: scale(1.05);
 }
