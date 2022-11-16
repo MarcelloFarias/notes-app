@@ -1,0 +1,35 @@
+.input-field {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.input-field .input-note {
+    width: 60%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    color: #372948;
+}
+
+.input-field .btn-add {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-left: 15px;
+    border-radius: 10px;
+    width: 100px;
+    cursor: pointer;
+    background: #FFECEF;
+    color: #372948;
+    transition: all 0.2s ease;
+}
+
+.input-field .btn-add:hover {
+    background: #FFCACA;
+    transform: scale(1.05);
+}
