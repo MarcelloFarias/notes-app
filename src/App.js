@@ -11,9 +11,21 @@ function App() {
   const [ inputNote, setInputNote ] = useState('');
 
   function createNote() {
-    notes.push(inputNote);
-    setNotes(notes);
-    setInputNote('');
+    if(inputNote === '') {
+      alert('You must to type any note !');
+    }
+    else {
+      notes.push(inputNote);
+      setNotes(notes);
+      setInputNote('');
+    } 
+  }
+
+  function deleteNote(index) {
+    if(notes.length > 0) {
+      notes.splice(index, 1);
+      setNotes([...notes]);
+    }
   }
 
   return (
@@ -24,7 +36,7 @@ function App() {
         <NotesList>
           {notes.map((note, index) => {
             return (
-              <Note key={index} note={note} />
+              <Note key={index} note={note} onDelete={() => deleteNote(index)}/>
             );
           })}
         </NotesList>
