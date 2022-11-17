@@ -4,11 +4,13 @@ import Header from './components/Header/index.js';
 import NoteInput from './components/NoteInput/index.js';
 import NotesList from './components/NotesList/index.js';
 import Note from './components/Note/index.js';
+import SearchInput from './components/SearchInput/index.js';
 
 function App() {
 
   const [ notes, setNotes ] = useState([]);
   const [ inputNote, setInputNote ] = useState('');
+  const [ inputSearch, setInputSearch ] = useState('');
 
   function createNote() {
     if(inputNote === '') {
@@ -28,17 +30,25 @@ function App() {
     }
   }
 
+  function searchNote(note) {
+    if(note.toLowerCase().includes(inputSearch.toLowerCase())) {
+      return note;
+    }
+    return;
+  }
+
   return (
     <>
       <Header />
       <main>
-        <NoteInput handleInputValue={(e) => setInputNote(e.target.value)} inputNoteValue={inputNote} createNote={createNote} />
+        <NoteInput handleInputValue={(e) => setInputNote(e.target.value)} inputNoteValue={inputNote} createNote={createNote}/>
         <NotesList>
-          {notes.map((note, index) => {
+          {notes.filter((note) => searchNote(note)).map((note, index) => {
             return (
-              <Note key={index} note={note} onDelete={() => deleteNote(index)}/>
+              <Note key={index} note={note} onDelete={() => deleteNote(index)} />
             );
           })}
+          <SearchInput handleSearchValue={(e) => setInputSearch(e.target.value)} searchValue={inputSearch} />
         </NotesList>
       </main>
     </>
