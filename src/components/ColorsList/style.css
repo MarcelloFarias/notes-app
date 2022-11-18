@@ -1,0 +1,10 @@
+.dots-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+    padding: 1rem;
+    list-style: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
