@@ -8,3 +8,21 @@
     margin-left: 50%;
     transform: translateX(-50%);
 }
+
+@media(max-width: 1100px) {
+    .dots-list {
+        width: 30%
+    }
+}
+
+@media(max-width: 760px) {
+    .dots-list {
+        width: 40%
+    }
+}
+
+@media(max-width: 550px) {
+    .dots-list {
+        width: 80%
+    }
+}
