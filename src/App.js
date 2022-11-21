@@ -55,12 +55,12 @@ function App() {
           })}
         </ColorsList>
         <NotesList>
+          <SearchInput handleSearchValue={(e) => setInputSearch(e.target.value)} searchValue={inputSearch} />
           {notes.filter((note) => searchNote(note)).map((note, index) => {
             return (
               <Note key={index} note={note.note} onDelete={() => deleteNote(index)} background={note.backgroundColor}/>
             );
           })}
-          <SearchInput handleSearchValue={(e) => setInputSearch(e.target.value)} searchValue={inputSearch} />
         </NotesList>
       </main>
     </>
