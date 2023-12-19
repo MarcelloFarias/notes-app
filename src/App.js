@@ -7,6 +7,7 @@ import Note from './components/Note/index.js';
 import SearchInput from './components/SearchInput/index.js';
 import ColorsList from './components/ColorsList';
 import DotColor from './components/DotColor/index.js';
+import Footer from './components/Footer/index.js';
 
 function App() {
 
@@ -75,6 +76,7 @@ function App() {
           })}
         </NotesList>
       </main>
+      <Footer />
     </>
   );
 }

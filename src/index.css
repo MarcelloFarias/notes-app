@@ -1,3 +1,10 @@
+:root {
+  --darkColor: #1c1c1c;
+  --lightColor: #e6e6e6;
+  --actionColor: #5cb85c;
+  --infoColor: #5bc0de;
+}
+
 * {
   margin: 0;
   padding: 0;
