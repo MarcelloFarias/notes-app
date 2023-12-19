@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header/index.js';
 import NoteInput from './components/NoteInput/index.js';
@@ -10,7 +10,7 @@ import DotColor from './components/DotColor/index.js';
 
 function App() {
 
-  const [ notes, setNotes ] = useState([{note: null, backgroundColor: null}]);
+  const [ notes, setNotes ] = useState([]);
   const [ inputNote, setInputNote ] = useState('');
   const [ inputSearch, setInputSearch ] = useState('');
   const [ selectedColor, setSelectedColor ] = useState('#fff69b');
@@ -18,20 +18,20 @@ function App() {
   const colors = ['#f6c2d9', '#fff69b', '#bcdfc9', '#a1c8df', '#a4dae2'];
 
   function createNote() {
-    if(inputNote === '') {
-      alert('You must to type any note !');
+    if(inputNote) {
+      setNotes((prevValues) => [...prevValues, {note: inputNote, backgroundColor: selectedColor}]);
+      setInputNote('');
     }
     else {
-      notes.push({note: inputNote, backgroundColor: selectedColor});
-      setNotes(notes);
-      setInputNote('');
+      alert('You must to type any note !');
     } 
   }
 
-  function deleteNote(index) {
+  function deleteNote(noteToDelete) {
     if(notes.length > 0) {
-      notes.splice(index, 1);
-      setNotes([...notes]);
+      setNotes(notes.filter((note) => {
+        return note !== noteToDelete;
+      }));
     }
   }
 
@@ -41,6 +41,16 @@ function App() {
     }
     return;
   }
+  
+  useEffect(() => {
+    if(JSON.parse(localStorage.getItem('notes'))?.length > 0) {
+      setNotes(JSON.parse(localStorage.getItem('notes')));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('notes', JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <>
@@ -48,17 +58,19 @@ function App() {
       <main>
         <NoteInput handleInputValue={(e) => setInputNote(e.target.value)} inputNoteValue={inputNote} createNote={createNote}/>
         <ColorsList>
-          {colors.map((color, index) => {
+          {colors.map((color) => {
             return (
-              <DotColor key={index} background={color} selectColor={() => setSelectedColor(color)} selectedColor={selectedColor}/>
+              <DotColor key={color} background={color} selectColor={() => setSelectedColor(color)} selectedColor={selectedColor}/>
             );
           })}
         </ColorsList>
         <NotesList>
-          <SearchInput handleSearchValue={(e) => setInputSearch(e.target.value)} searchValue={inputSearch} />
-          {notes.filter((note) => searchNote(note)).map((note, index) => {
+          {notes?.length > 3 ? (
+            <SearchInput handleSearchValue={(e) => setInputSearch(e.target.value)} searchValue={inputSearch} />
+          ) : null}
+          {notes?.filter((note) => searchNote(note)).map((note, index) => {
             return (
-              <Note key={index} note={note.note} onDelete={() => deleteNote(index)} background={note.backgroundColor}/>
+              <Note key={index} note={note} onDelete={() => deleteNote(note)} />
             );
           })}
         </NotesList>
