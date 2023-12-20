@@ -35,6 +35,12 @@ Instale todas as dependências utilizando:
 ```
 npm install
 ```
+
+Depois basta rodar o projeto:
+```
+npm start
+```
+
 # 😄 Sinta-se à vontade para contribuir
 
 1. Bifurque este repositório.
