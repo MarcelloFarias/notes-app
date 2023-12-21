@@ -1,6 +1,6 @@
 # Notes App 📝
 
-https://github.com/MarcelloFarias/notes-app/assets/90793123/3b5a37c0-70be-499c-8b75-c666a8c09044
+https://github.com/MarcelloFarias/notes-app/assets/90793123/f9a9d4b1-9251-4262-b893-35d8bf4b358b
 
 # Sobre o projeto
 
